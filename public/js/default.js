@@ -5,7 +5,7 @@ async function init() {
     
     document.getElementById('button-discord').addEventListener('click',()=>{
         if (!socket || socket.readyState !== WebSocket.OPEN) {
-            socket = new WebSocket(`wss://${ip}:8080`);
+            socket = new WebSocket(`wss://${ip}:8443`);
         
             socket.onopen = () => {
               console.log('Conexão com WebSocket aberta');
