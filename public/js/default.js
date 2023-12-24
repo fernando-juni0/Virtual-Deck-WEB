@@ -1,8 +1,21 @@
-document.getElementById('button-discord').addEventListener('click',()=>{
-    console.log('discord');
-    fetch('http://192.168.0.101:3000/test/discord',{method:'POST'})
-})
-document.getElementById('button-chrome').addEventListener('click',()=>{
-    console.log('chrome');
-    fetch('http://192.168.0.101:3000/test/chrome',{method:'POST'})
-})
+init()
+async function init() {
+    let ip = await fetch('https://api.ipify.org/?format=json').then(response => response.json()).then(data => {return data.ip}).catch(error => {console.error('Erro ao obter o IP:', error);});
+    const socket = new WebSocket(`ws://${ip}:8080`);
+    
+    document.getElementById('button-discord').addEventListener('click',()=>{
+        if (socket.readyState === WebSocket.OPEN) {
+            socket.send('executar-funcao');
+        } else {
+            console.error('Conexão com WebSocket não está aberta.');
+        }
+    })
+    document.getElementById('button-chrome').addEventListener('click',()=>{
+        if (socket.readyState === WebSocket.OPEN) {
+            socket.send('executar-funcao');
+        } else {
+            console.error('Conexão com WebSocket não está aberta.');
+        }
+    })
+}
+
