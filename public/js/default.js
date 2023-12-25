@@ -1,32 +1,18 @@
-init()
-async function init() {
-    let ip = await fetch('https://api.ipify.org/?format=json').then(response => response.json()).then(data => {return data.ip}).catch(error => {console.error('Erro ao obter o IP:', error);});
-    var socket;
-    
-    document.getElementById('button-discord').addEventListener('click',()=>{
-        if (!socket || socket.readyState !== WebSocket.OPEN) {
-            socket = new WebSocket(`wss://192.168.0.101:8443`);
-        
-            socket.onopen = () => {
-              console.log('Conexão com WebSocket aberta');
-              socket.send('executar-funcao');
-            };
-        
-            socket.onerror = (error) => {
-              console.error('Erro na conexão WebSocket:', error);
-            };
-        
-            socket.onmessage = (event) => {
-              console.log('Mensagem recebida:', event.data);
-            };
-        
-            socket.onclose = () => {
-              console.log('Conexão com WebSocket fechada');
-            };
-        } else {
-            socket.send('executar-funcao');
-        }
-    })
 
-}
+    
+    
+document.getElementById('button-discord').addEventListener('click', async()=>{
+    let ip = await fetch('https://api.ipify.org/?format=json').then(response => response.json()).then(data => {return data}).catch(error => {console.error('Erro ao obter o IP:', error);});
+    console.log(ip);
+    try {
+        const response = await fetch('http://192.168.1.101:3000/executar-funcao', {
+        method: 'GET' // Pode ser outro método HTTP dependendo da necessidade
+        });
+        const data = await response.text();
+        console.log(data); // Mensagem da resposta do aplicativo desktop
+    } catch (error) {
+        console.error('Erro:', error);
+    }
+})
+
 
