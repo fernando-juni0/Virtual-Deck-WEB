@@ -7,7 +7,7 @@ document.getElementById('button-discord').addEventListener('click', async()=>{
         const response = await fetch(`https://a244-177-11-159-231.ngrok-free.app/executar-funcao`, {
         method: 'GET', // Pode ser outro método HTTP dependendo da necessidade
         headers: {
-            'ngrok-skip-browser-warning': 'qualquer-valor-aqui'
+            'ngrok-skip-browser-warning': '1'
         }
         });
         const data = await response.text();
