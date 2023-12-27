@@ -57,12 +57,12 @@ cloudinary.config({
     api_secret: 'sGIzXYveDRCN_iSnjKepzB8mMd8' 
 });
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost'); // Permitir acesso do seu aplicativo web
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Métodos permitidos
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Cabeçalhos permitidos
+    res.setHeader('Access-Control-Allow-Origin', 'https://virtualdeck.fernandojunio.com.br');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
     next();
   });
-  
 
 app.get('/',(req,res)=>{
     res.redirect('/default')
