@@ -10,7 +10,7 @@ document.getElementById('close-config-popup-button').addEventListener('click',()
 
 
 document.getElementById('save-linkServer').addEventListener('click',()=>{
-    let link = document.getElementById('linkServer')
+    let link = document.getElementById('linkServer').value
     if (link.trim().length > 0) {
         linkServer = link
     }
