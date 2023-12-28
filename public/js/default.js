@@ -1,4 +1,10 @@
 let linkServer
+let param = location.pathname.replace('/default/','')
+if (param.length > 0) {
+    linkServer = param
+    document.getElementById('linkServer').value = param
+}
+
 
 document.getElementById('button-config').addEventListener('click',()=>{
     document.getElementById('config-popup').style.display ='flex'

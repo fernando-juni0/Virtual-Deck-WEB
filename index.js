@@ -69,7 +69,7 @@ app.get('/',(req,res)=>{
 })
 
 
-app.get('/default/:link',(req,res)=>{
+app.get('/default/:link?',(req,res)=>{
     res.render('default')
 })
 
