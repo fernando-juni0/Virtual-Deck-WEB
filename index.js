@@ -74,7 +74,9 @@ app.get('/default',(req,res)=>{
 })
 
 
-
+app.get('/qrcode/:link',(req,res)=>{
+    res.redirect(`/default?link=${req.params.link}`)
+})
 
 
 
