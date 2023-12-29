@@ -1,6 +1,6 @@
 let linkServer
-const match = location.href.match(/\/default\/(\d+)?$/);
-const param = match ? (match[1] || '') : '';
+const match = location.href.match(/\/default\/(.+)/);
+const param = match ? match[1] : '';
 console.log(param);
 if (param.length > 0) {
     linkServer = param
