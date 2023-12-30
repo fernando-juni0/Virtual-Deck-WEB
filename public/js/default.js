@@ -127,6 +127,67 @@ document.getElementById('button-spotify').addEventListener('click', async()=>{
 })
 
 
+document.getElementById('button-muted').addEventListener('click', async()=>{
+    if (linkServer) {
+        try {
+            const response = await fetch(`https://${linkServer}/muted`, {
+                method: 'GET', // Pode ser outro método HTTP dependendo da necessidade
+                headers: {
+                    'ngrok-skip-browser-warning': '1'
+                },
+            });
+            const data = await response.text();
+
+            console.log(data); // Mensagem da resposta do aplicativo desktop
+        } catch (error) {
+            console.error('Erro:', error);
+            errorNotify("Erro ao se comunicar com o dispositivo, verifique se o código de acesso está correto ou atualize a página!")
+        }
+    }
+})
+
+
+
+document.getElementById('button-dim-volume').addEventListener('click', async()=>{
+    if (linkServer) {
+        try {
+            const response = await fetch(`https://${linkServer}/volume/false`, {
+                method: 'GET', // Pode ser outro método HTTP dependendo da necessidade
+                headers: {
+                    'ngrok-skip-browser-warning': '1'
+                }
+            });
+            const data = await response.text();
+
+            console.log(data); // Mensagem da resposta do aplicativo desktop
+        } catch (error) {
+            console.error('Erro:', error);
+            errorNotify("Erro ao se comunicar com o dispositivo, verifique se o código de acesso está correto ou atualize a página!")
+        }
+    }
+})
+
+
+document.getElementById('button-add-volume').addEventListener('click', async()=>{
+    if (linkServer) {
+        try {
+            const response = await fetch(`https://${linkServer}/volume/true`, {
+                method: 'GET', // Pode ser outro método HTTP dependendo da necessidade
+                headers: {
+                    'ngrok-skip-browser-warning': '1'
+                }
+            });
+            const data = await response.text();
+
+            console.log(data); // Mensagem da resposta do aplicativo desktop
+        } catch (error) {
+            console.error('Erro:', error);
+            errorNotify("Erro ao se comunicar com o dispositivo, verifique se o código de acesso está correto ou atualize a página!")
+        }
+    }
+})
+
+
 
 
 
