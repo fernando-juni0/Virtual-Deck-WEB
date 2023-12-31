@@ -2,10 +2,29 @@ let linkServer
 const match = location.href.match(/\/default\/(.+)/);
 const param = match ? match[1] : '';
 console.log(param);
+
 if (param.length > 0) {
-    linkServer = param
-    document.getElementById('linkServer').value = param
-    document.getElementById('config-popup').style.display = 'none'
+    fetch(`https://${param}/ping`, {
+        method: 'GET', // Pode ser outro método HTTP dependendo da necessidade
+        headers: {
+            'ngrok-skip-browser-warning': '1'
+        }
+    }).then(async(res)=>{
+        const data = await response.text();
+        if (data == 'sucess') {
+            successNotify('Você se conectou a um dispositivo!')
+            linkServer = param
+            document.getElementById('linkServer').value = param
+            document.getElementById('config-popup').style.display = 'none'
+            history.pushState({}, '', '/default/'+param);
+            successNotify('Você se conectou a um dispositivo!')
+        }else{
+            errorNotify("Erro ao se comunicar com o dispositivo, verifique se o código de acesso está correto!")
+        }
+    }).catch((err)=>{
+        errorNotify("Erro ao se comunicar com o dispositivo, verifique se o código de acesso está correto!")
+    })
+    
 }
 
 
@@ -22,7 +41,7 @@ document.getElementById('save-linkServer').addEventListener('click',async()=>{
     let link = document.getElementById('linkServer').value
     if (link.trim().length > 0) {
         try {
-            const response = await fetch(`https://${linkServer}/ping`, {
+            const response = await fetch(`https://${link}/ping`, {
                 method: 'GET', // Pode ser outro método HTTP dependendo da necessidade
                 headers: {
                     'ngrok-skip-browser-warning': '1'
@@ -31,6 +50,9 @@ document.getElementById('save-linkServer').addEventListener('click',async()=>{
             const data = await response.text();
             if (data == 'sucess') {
                 successNotify('Você se conectou a um dispositivo!')
+                linkServer = link
+                document.getElementById('config-popup').style.display = 'none'
+                history.pushState({}, '', '/default/'+link);
             }else{
                 errorNotify("Erro ao se comunicar com o dispositivo, verifique se o código de acesso está correto!")
             }
@@ -39,11 +61,6 @@ document.getElementById('save-linkServer').addEventListener('click',async()=>{
             console.error('Erro:', error);
             errorNotify("Erro ao se comunicar com o dispositivo, verifique se o código de acesso está correto!")
         }
-        linkServer = link
-        document.getElementById('config-popup').style.display = 'none'
-        location.pathname = '/default/'+link
-
-
     }
 })
 
