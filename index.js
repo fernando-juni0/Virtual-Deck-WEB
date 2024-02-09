@@ -73,7 +73,9 @@ app.get('/default/:link?',(req,res)=>{
     res.render('default')
 })
 
-
+app.get('/create/shortcut',(req,res)=>{
+    res.render('create-shortcut')
+})
 
 
 

@@ -1,0 +1,124 @@
+#containner{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secundary-color-puple);
+}
+#content{
+    padding: 1.5em;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+    height: 75vh;
+    min-width: 10em;
+    min-height: 20em;
+    border-radius: 10px;
+    background-color: var(--primary-color-opacity);
+}
+#shot-titles{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5em;
+    #exp-title{
+        font-size: 1.8em;
+        color: var(--color-text-primary);
+        font-family: 'inter',sans-serif;
+        font-weight: 700;
+
+    }
+    #obs-text{
+        font-size: 1.2em;
+        color: var(--color-text-primary);
+        font-family: 'inter',sans-serif;
+        font-weight: 400;
+    }
+}
+#data-atalhos-content{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+    gap: 1em;
+}
+#image-icon-preview{
+    width: 10em;
+    height:10em;
+    cursor: pointer;
+    border-radius: 10px;
+}
+#name-shortcut{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    #name-input-short{
+        padding: 0.4em;
+        font-size: 1.2em;
+        font-family: 'ubuntu',sans-serif;
+        border-radius: 10px;
+        border: 1px solid var(--purpple-low-color);
+    }
+}
+#image-icon-short{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 1em;
+}
+label{
+    font-size: 1em;
+    font-family: 'raleway',sans-serif;
+    color: var(--color-text-primary);
+}
+#exib-atalho-containner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+.KeyBack{
+    background-color: var(--purpple-low-color);
+    color: var(--primary-lite-color);
+    font-weight: 700;
+    font-family: 'inter',sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    width: 4em;
+    height: 4em;
+
+}
+#buttons-content{
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+}
+#options-atalho-containner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+}
+.btns{
+    padding: 0.6em;
+    font-size: 1.2em;
+    font-family: 'inter',sans-serif;
+    background-color: var(--text-gray-color-primary);
+    border-radius: 10px;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+}

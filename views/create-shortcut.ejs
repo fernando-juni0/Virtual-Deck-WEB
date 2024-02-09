@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Atalho</title>
+    <link rel="stylesheet" href="../public/css/reusable/styleRoot.css">
+    <link rel="stylesheet" href="../public/css/notify.css">
+    <link rel="stylesheet" href="../public/css/create-shortcut.css">
+    <link rel="shortcut icon" href="../public/assets/fav-icon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="containner">
+        <div id="content">
+            <div id="shot-titles">
+                <h1 id="exp-title">Grave atalhos que executam funções em seu computador, seja atalhos de qualquer aplicativo!</h1>
+                <p id="obs-text">Não é necessário segurar as teclas, apenas clique nelas na ordem que deseja executar!</p>
+            </div>
+            <div class="linha"></div>
+            <div id="data-atalhos-content">
+                <div id="image-icon-short">
+                    <label for="image-icon-preview">Clique para escolher o icone do atalho!</label>
+                    <img src="../public/img/Empty-IMG.jpg" id="image-icon-preview" alt="">
+                    <input type="file" hidden name="" id="input-icon-img">
+                </div>
+                <div id="name-shortcut">
+                    <label for="name-input-short">Adicione o nome do icone abaixo!</label>
+                    <input type="text" id="name-input-short" placeholder="Icon Name">
+                </div>
+            </div>
+            <div class="linha"></div>
+            <label for="">Teclas gravadas!</label>
+            <div id="exib-atalho-containner">
+                <div class="KeyBack" id="modifiers-atalho-content"></div>
+                
+            </div>
+            <div id="options-atalho-containner">
+                <label id="title-btn">Clique no botão gravar para começar a gravar o atalho!</label>
+                <div id="buttons-content">
+                    <button class="btns" id="rec-atalhos">Gravar</button>
+                    <button style="display: none;" class="btns" id="save-atalhos">Salvar</button>
+                    <button class="btns" id="clear-atalhos">Limpar</button>
+                </div>
+            </div>
+            <div class="linha"></div>
+            <div id="button-save-containner">
+                <button class="btns" id="button-create" style="background-color: rgb(99, 196, 112);">Criar Atalho</button>
+            </div>
+        </div>
+    </div>
+    <script src="../public/js/create-shortcut.js"></script>
+    <script src="../public/js/notify.js"></script>
+</body>
+</html>
